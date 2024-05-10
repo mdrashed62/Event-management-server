@@ -35,11 +35,9 @@ async function run() {
         res.send(result)
     })
 
-    // app.get('/services', async(req, res) => {
-    //     const cursor = serviceCollection.find();
-    //     const result = await cursor.toArray();
-    //     res.send(result);
-    // })
+    app.get('/services', async(req, res) => {
+        
+    })
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
