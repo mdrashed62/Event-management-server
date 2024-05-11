@@ -27,6 +27,7 @@ async function run() {
     // await client.connect();
 
     const serviceCollection = client.db('simpleServices').collection('services')
+    const purchaseServicesCollection = client.db('simpleServices').collection('purchaseServices')
 
     app.post('/services', async(req, res) => {
         const newServices = req.body;
@@ -34,9 +35,11 @@ async function run() {
         const result = await serviceCollection.insertOne(newServices);
         res.send(result)
     })
+
     app.post('/purchaseServices', async(req, res) => {
-       
+        
     })
+   
 
     app.get('/services', async(req, res) => {
         const cursor = serviceCollection.find();
