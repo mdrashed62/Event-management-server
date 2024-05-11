@@ -37,7 +37,8 @@ async function run() {
     })
 
     app.post('/purchaseServices', async(req, res) => {
-        
+        const purchaseService = req.body;
+        console.log(purchaseService)
     })
    
 
