@@ -34,6 +34,9 @@ async function run() {
         const result = await serviceCollection.insertOne(newServices);
         res.send(result)
     })
+    app.post('/purchaseServices', async(req, res) => {
+       
+    })
 
     app.get('/services', async(req, res) => {
         const cursor = serviceCollection.find();
