@@ -42,6 +42,12 @@ async function run() {
         const result = await purchaseServicesCollection.insertOne(purchaseService)
         res.send(result)
     })
+
+    app.get('/purchaseServices', async(req, res) => {
+        const cursor = purchaseServicesCollection.find();
+        const result = await cursor.toArray();
+        res.send(result)
+    })
    
 
     app.get('/services', async(req, res) => {
