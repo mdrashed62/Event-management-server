@@ -70,6 +70,30 @@ async function run() {
         res.send(result);
     })
 
+   // Assuming you already have your Express server set up and connected to MongoDB
+
+app.patch('/purchaseServices/:id', async (req, res) => {
+    const id = req.params.id;
+    const { serviceStatus } = req.body; // Assuming the request body contains the updated service status
+  
+    try {
+      const result = await purchaseServicesCollection.updateOne(
+        { _id: ObjectId(id) }, // Find the service by its ID
+        { $set: { serviceStatus } } // Update the service status
+      );
+      
+      if (result.modifiedCount === 1) {
+        res.status(200).send({ message: 'Service status updated successfully' });
+      } else {
+        res.status(404).send({ message: 'Service not found' });
+      }
+    } catch (error) {
+      console.error('Error updating service status:', error);
+      res.status(500).send({ message: 'Internal server error' });
+    }
+  });
+  
+
     app.put('/services/:id', async (req, res) => {
         const id = req.params.id;
         const filter = {_id: new ObjectId(id)}
