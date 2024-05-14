@@ -6,7 +6,15 @@ const app = express ();
 const port = process.env.PORT || 5000;
 
 //middleware
-app.use(cors())
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+       "https://simple-services-client.web.app", "https://simple-services-client.firebaseapp.com",
+      ],
+    credentials: true,
+   })
+  )
 app.use (express.json())
 
 
